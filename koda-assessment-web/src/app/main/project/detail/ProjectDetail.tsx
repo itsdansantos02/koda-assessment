@@ -4,14 +4,16 @@ import CrudField from "../../../../app/shared-components/crud/field/CrudField";
 import PanelHeader from "../../../../app/shared-components/panel-header/PanelHeader";
 import Panel from "../../../../app/shared-components/panel/Panel";
 import { useParams } from "react-router";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import LoadingWrapper from "../../../../app/shared-components/loading/LoadingWrapper";
 import { ProjectService } from "../service/ProjectService";
 import ModalConfirmation from "../../../../app/shared-components/modal-confirmation/ModalConfirmation";
 import { useState } from "react";
+import { useSnackbar } from "notistack";
 
 function ProjectDetail() {
   // get params id
+  const { enqueueSnackbar } = useSnackbar();
   const { id } = useParams();
   const { title, resource, isLoading, breadcrumbs, getResource } =
     CrudDetail<any>({
@@ -19,6 +21,8 @@ function ProjectDetail() {
     });
 
   const [showDeleteModal, setShowDeleteModal] = useState(false);
+
+  const navigate = useNavigate();
 
   const deleteRecord = async () => {
     if (!id) return;
@@ -28,13 +32,20 @@ function ProjectDetail() {
 
       setShowDeleteModal(false);
 
-      // Go back to project list
-      window.location.href = "/projects";
+      enqueueSnackbar("Record deleted successfully", {
+        variant: "success",
+      });
+
+      navigate("/projects");
     } catch (error) {
       console.error("Project delete failed:", error);
+
+      enqueueSnackbar("Failed to delete record", {
+        variant: "error",
+      });
     }
   };
-
+  
   return (
     <PanelHeader
       title={title}

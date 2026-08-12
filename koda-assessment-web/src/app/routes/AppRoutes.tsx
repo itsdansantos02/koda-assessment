@@ -46,7 +46,7 @@ export default function AppRoutes() {
           path="/"
           element={
             <Navigate
-              to="/home"
+              to="/projects"
               replace
             />
           }

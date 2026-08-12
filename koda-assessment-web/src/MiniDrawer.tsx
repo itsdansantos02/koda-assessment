@@ -173,7 +173,7 @@ export default function MiniDrawer() {
           </IconButton>
 
           <Typography variant="h6" noWrap component="div">
-            {routeTitle}
+            Koda Assessment
           </Typography>
         </Toolbar>
       </AppBar>

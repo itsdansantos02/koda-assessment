@@ -81,6 +81,16 @@ export default function Project() {
       label: "PRIORITY",
       sortable: true,
     },
+    {
+      id: "start_date",
+      label: "START DATE",
+      sortable: true,
+    },
+    {
+      id: "due_date",
+      label: "DUE DATE",
+      sortable: true,
+    },
   ];
 
   const statusOptions = Object.values(ProjectStatus).map((value) => ({
@@ -222,14 +232,16 @@ export default function Project() {
                           to={`/projects/${row.id}`}
                           className="text-blue-600 no-underline hover:text-blue-700 hover:underline"
                         >
-                          {row.project_name}
+                          {row?.project_name}
                         </Link>
                       </TableCell>
-                      <TableCell>{row.client_name}</TableCell>
+                      <TableCell>{row?.client_name}</TableCell>
                       <TableCell>
-                        <Status label={row.status.toUpperCase()} />
+                        <Status label={row?.status.toUpperCase()} />
                       </TableCell>
-                      <TableCell>{row.priority}</TableCell>
+                      <TableCell>{row?.priority}</TableCell>
+                      <TableCell>{row?.start_date}</TableCell>
+                      <TableCell>{row?.due_date}</TableCell>
                     </TableRow>
                   ))
                 )}

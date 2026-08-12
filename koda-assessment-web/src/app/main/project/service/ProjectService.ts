@@ -12,7 +12,7 @@ export const ProjectService = {
     });
   },
 
-  delete: (id) => {
+  delete: (id: string) => {
     return ApiRequest({
       url: `${baseUrl}/${id}`,
       method: 'DELETE',

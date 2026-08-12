@@ -12,12 +12,6 @@ export interface RouteConfig {
 
 const routesConfig: RouteConfig[] = [
   {
-    id: "home",
-    title: "Home",
-    url: "home",
-    icon: HomeIcon,
-  },
-  {
     id: "projects",
     title: "Projects",
     url: "projects",
