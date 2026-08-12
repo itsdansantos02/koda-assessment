@@ -9,7 +9,7 @@ type TextAreaProps = {
   id?: string;
   name?: string;
   className?: string;
-  value?: string;
+  value?: any;
   onChange?: (value: string) => void;
   errorMessage?: string;
   required?: boolean;
