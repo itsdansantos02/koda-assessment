@@ -103,3 +103,21 @@ npm run dev
 * Start the backend API before using frontend features that require API access.
 * Keep both the backend and frontend terminals running during development.
 * Make sure MySQL is running before executing Laravel migrations.
+
+
+# Features Implemented
+Project CRUD operations
+├──Projects Module
+├──Create projects
+├──View project details
+├──View project list
+├──Update projects
+└──Delete projects
+
+# Assumptions Made
+- The backend API and frontend application are run separately during development.
+- Soft deletion is assumed.
+- The application is intended for local development and assessment purposes.
+- Environment-specific configuration such as database credentials and API URLs should be configured through .env files rather than hardcoded in the source code.
+- Authentication was not included unless specifically required by the assessment.
+- API Seeder for test_data provided
